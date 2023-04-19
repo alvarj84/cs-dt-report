@@ -2,7 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
-account_id_to_filter = '001j000000sDhBY'
+account_id_to_filter = '001j000000fyeyU'
 
 file_names = [
     'accounts.csv',
@@ -73,18 +73,21 @@ for file_name in file_names:
         account_id_column_index = 19
         fields_to_print = [3, 1, 2, 4, 5, 6, 14, 15, 16, 17, 18]
         values_to_find = None
+        filter_and_print_rows(file_name, account_id_column_index, fields_to_print, values_to_find)
     elif file_name == 'contacts.csv':
         account_id_column_index = 5
         fields_to_print = [0, 1, 6]
         values_to_find = [(6, 'Champion'), (6, 'Economic Buyer')]
+        filter_and_print_rows(file_name, account_id_column_index, fields_to_print, values_to_find)
     elif file_name == 'opportunities.csv':
         account_id_column_index = 1  # Replace with the correct index of account_id in opportunities.csv
         fields_to_print = [3,4]
         values_to_find = None
+        filter_and_print_rows(file_name, account_id_column_index, fields_to_print, values_to_find)
     elif file_name == 'cases.csv':
         account_id_column_index = 6  # Replace with the correct index of account_id in cases.csv
         fields_to_print = [5,13,3]
         values_to_find = None
         count_field_values(file_name, account_id_column_index=6, count_column_index=3, values=["Priority 1 (Urgent)","Priority 2 (High)","Priority 3 (Normal)","Priority 4 (Low)"])
         generate_word_cloud(file_name,account_id_column_index=6,subject_column=13)
-    filter_and_print_rows(file_name, account_id_column_index, fields_to_print, values_to_find)
+        #filter_and_print_rows(file_name, account_id_column_index, fields_to_print, values_to_find)
